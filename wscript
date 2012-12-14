@@ -28,7 +28,7 @@ def build(ctx):
 
     pybin = ctx.root.find_resource(pybin)
     pybin.sig = waflib.Utils.h_file(pybin.abspath())
-    ctx.install_as('${INSTALL_AREA}/bin', pybin)
+    ctx.install_as('${INSTALL_AREA}/bin/python', pybin)
     #ctx
     return
 
