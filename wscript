@@ -16,6 +16,12 @@ def configure(ctx):
     ctx.find_python()
     ctx.load('find_root')
     ctx.find_root()
+    ctx.env.ROOT_HOME = ctx.env.ROOTSYS
+
+    rootsys = ctx.env.ROOT_HOME
+    for k in 'PyROOT ROOT Reflex Cintex XMLIO XMLParser'.split():
+        ctx.env['INCLUDES_%s'%k] = ['%s/include' % rootsys]
+        ctx.env['LIBPATH_%s'%k] = ['%s/lib' % rootsys]
     return
 
 def build(ctx):
